@@ -13,8 +13,8 @@ class App extends Component {
   }
     
   componentDidMount() {
-    fetch('https://api.airtable.com/v0/appYtlXipFSJvsgwG/VENDORS?api_key=keyT2A9MZe2xbjLUW')
-    .then((resp) => resp.json())
+    fetch('https://api.airtable.com/v0/appXXMCwAfxx7g9sl/VENDORS?api_key=keyT2A9MZe2xbjLUW') 
+    .then((resp) => resp.json()) 
 
     .then(data => {
        this.setState({ restaurants: data.records });
@@ -83,11 +83,17 @@ const TableRow =  ({ Name, Email, Website, Curbside, Delivery, Type, lon, lat })
   </tr>
 );
 
-const MarkerElement = ({ Name, Email, Website, Curbside, Delivery, Type, lon, lat }) => (
+const MarkerElement = ({ Name, Email, Website, Curbside, Delivery, Type, lon, lat }) => {
+  if (!lon || !lat) { // evaluates to true if currentVideo is null
+    return ""; 
+  }
+  return (
     <Marker           
         position={{lat:lat, lng: lon}}>
         <Popup>
             <span>{Name}</span>
         </Popup>
     </Marker>
-);
+  );
+
+};
