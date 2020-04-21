@@ -74,7 +74,6 @@ class App extends Component {
 
 export default App;
 
-
 const TableRow =  ({ Name, Email, Website, Curbside, Delivery, Type, lon, lat }) => (
   <Tr data-item={Name}>
     <Td>{Name}</Td>
