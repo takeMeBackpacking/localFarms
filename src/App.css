@@ -41,10 +41,11 @@
   text-align: center;
   font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
   border-collapse: collapse;
-  width: 100%;
+  width: 95%;
+  margin: auto;
 }
 
-#restaurantsTable td, #restaurantsTable th {
+#restaurantsTable Td, #restaurantsTable th {
   border: 1px solid #ddd;
   padding: 8px;
 }
@@ -66,11 +67,4 @@
     
 }
 
-body {
-    padding: 0;
-    margin: 0;
-}
-html, body, #map {
-    height: 100%;
-    width: 100vw;
-}
+body{ display : block; margin : 8px; }

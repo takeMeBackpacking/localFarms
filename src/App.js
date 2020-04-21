@@ -13,7 +13,7 @@ class App extends Component {
       markers: []
     };
   }
-    
+  
   componentDidMount() {
     fetch('https://api.airtable.com/v0/appXXMCwAfxx7g9sl/VENDORS?api_key=keyT2A9MZe2xbjLUW') 
     .then((resp) => resp.json()) 
@@ -26,7 +26,6 @@ class App extends Component {
     });
   }
 
-    
   render() {
     return (
       <div className="container mt-5">
@@ -44,6 +43,7 @@ class App extends Component {
               </Thead>
               <Tbody>
                 {this.state.restaurants.map(restaurant => <TableRow {...restaurant.fields} /> )}
+
               </Tbody>
             </Table>       
         </div>
@@ -74,8 +74,9 @@ class App extends Component {
 
 export default App;
 
+
 const TableRow =  ({ Name, Email, Website, Curbside, Delivery, Type, lon, lat }) => (
-  <Tr>
+  <Tr data-item={Name}>
     <Td>{Name}</Td>
     <Td>{Email}</Td>
     <Td>{Website}</Td>
