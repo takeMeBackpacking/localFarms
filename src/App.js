@@ -2,6 +2,8 @@ import logo from './logo.svg';
 import './App.css';
 import React, { Component } from 'react';
 import { Map as LeafletMap, TileLayer, Marker, Popup } from 'react-leaflet';
+import { Table, Thead, Tbody, Tr, Th, Td } from 'react-super-responsive-table'
+import 'react-super-responsive-table/dist/SuperResponsiveTableStyle.css'
 
 class App extends Component {
   constructor(props) {
@@ -29,21 +31,21 @@ class App extends Component {
     return (
       <div className="container mt-5">
         <div className="row">
-             <table id="restaurantsTable">
-              <thead>
-                <tr>
-                  <th>Name</th>
-                  <th>Email</th>
-                  <th>Website</th>
-                  <th>Curbside</th>
-                  <th>Delivery</th>
-                  <th>Type</th>
-                </tr>
-              </thead>
-              <tbody>
+             <Table id="restaurantsTable">
+              <Thead>
+                <Tr>
+                  <Th>Name</Th>
+                  <Th>Email</Th>
+                  <Th>Website</Th>
+                  <Th>Curbside</Th>
+                  <Th>Delivery</Th>
+                  <Th>Type</Th>
+                </Tr>
+              </Thead>
+              <Tbody>
                 {this.state.restaurants.map(restaurant => <TableRow {...restaurant.fields} /> )}
-              </tbody>
-            </table>       
+              </Tbody>
+            </Table>       
         </div>
         
         <div className="row">
@@ -73,14 +75,14 @@ class App extends Component {
 export default App;
 
 const TableRow =  ({ Name, Email, Website, Curbside, Delivery, Type, lon, lat }) => (
-  <tr>
-    <td>{Name}</td>
-    <td>{Email}</td>
-    <td>{Website}</td>
-    <td>{Curbside}</td>
-    <td>{Delivery}</td>
-    <td>{Type}</td>
-  </tr>
+  <Tr>
+    <Td>{Name}</Td>
+    <Td>{Email}</Td>
+    <Td>{Website}</Td>
+    <Td>{Curbside}</Td>
+    <Td>{Delivery}</Td>
+    <Td>{Type}</Td>
+  </Tr>
 );
 
 const MarkerElement = ({ Name, Email, Website, Curbside, Delivery, Type, lon, lat }) => {
